@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="DataProviders\Extensions\" />
+    <Folder Include="DataProviders\WebServices\" />
+    <Folder Include="DataProviders\Repositories\ConnectionsFactories\" />
+    <Folder Include="DataProviders\Repositories\Extentions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gestao.Empresarial.Domain\Gestao.Empresarial.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
