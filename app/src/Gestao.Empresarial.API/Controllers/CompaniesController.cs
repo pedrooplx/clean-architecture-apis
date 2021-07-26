@@ -1,4 +1,6 @@
-﻿using Gestao.Empresarial.Application.Services.Interfaces;
+﻿using Gestao.Empresarial.Domain.Entities;
+using Gestao.Empresarial.Domain.Gateways.Abstractions.Repository;
+using Gestao.Empresarial.Domain.Interfaces.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,22 +12,17 @@ namespace Gestao.Empresarial.API.Controllers
     [Route("api/[controller]")]
     public class CompaniesController : BaseController
     {
-        private readonly ICompanyService _companyService;
-        public CompaniesController(ICompanyService companyService)
-        {
-            _companyService = companyService;
-        }
 
         [HttpGet]
         public IActionResult GetCompanies()
         {
-            return Ok(_companyService.GetCompanies());
+            return Ok();
         }
 
         [HttpGet("{id:guid}")]
-        public ActionResult GetCompanyById(Guid id)
+        public IActionResult GetCompanyById(Guid id)
         {
-            return Ok(_companyService.GetCompanyById(id));
+            return Ok();
         }
     }
 }

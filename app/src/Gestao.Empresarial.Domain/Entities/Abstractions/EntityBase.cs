@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Gestao.Empresarial.Domain.Entities
 {
-    public abstract class Entity : Auditory
+    public abstract class EntityBase : Auditory
     {
         public Guid Id { get; set; }
 
-        protected Entity()
+        protected EntityBase()
         {
             Id = Guid.NewGuid();
         }
