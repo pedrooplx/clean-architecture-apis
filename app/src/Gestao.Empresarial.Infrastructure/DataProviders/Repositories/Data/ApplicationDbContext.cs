@@ -1,17 +1,24 @@
 ﻿using Gestao.Empresarial.Domain.Entities;
+using Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Extentions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions options, Guid loggedUserId) : base(options)
         {
+            this.LoggedUserId = loggedUserId;
         }
+
+        public Guid LoggedUserId { get; set; }
+
 
         public DbSet<Company> Companies { get; set; }
 
@@ -25,6 +32,18 @@ namespace Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override int SaveChanges()
+        {
+            this.ConfigureAuditoryProperty();
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            this.ConfigureAuditoryProperty();
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

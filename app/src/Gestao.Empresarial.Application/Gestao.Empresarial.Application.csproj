@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\CompanyModels\" />
     <Folder Include="Models\RequestModels\" />
     <Folder Include="Models\ResponseModels\" />
     <Folder Include="Mappers\" />

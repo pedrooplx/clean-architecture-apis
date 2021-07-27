@@ -4,9 +4,13 @@ using System.Text;
 
 namespace Gestao.Empresarial.Domain.Entities
 {
-    public abstract class EntityBase : Auditory
+    public abstract class EntityBase : IAuditory
     {
         public Guid Id { get; set; }
+        public Guid CreatedBy { get; set; }
+        public DateTime Created { get; set; }
+        public Guid ModifiedBy { get; set; }
+        public DateTime Modified { get; set; }
 
         protected EntityBase()
         {
@@ -14,11 +18,11 @@ namespace Gestao.Empresarial.Domain.Entities
         }
     }
 
-    public abstract class Auditory
+    public interface IAuditory
     {
-        public Guid CreatedBy { get; set; }
-        public DateTime Created { get; set; }
-        public Guid ModifiedBy { get; set; }
-        public DateTime Modified { get; set; }
+        Guid CreatedBy { get; set; }
+        DateTime Created { get; set; }
+        Guid ModifiedBy { get; set; }
+        DateTime Modified { get; set; }
     }
 }
