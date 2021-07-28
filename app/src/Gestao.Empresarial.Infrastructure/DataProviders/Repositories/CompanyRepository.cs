@@ -10,8 +10,5 @@ namespace Gestao.Empresarial.Infrastructure.Persistence.Repositories
     public class CompanyRepository : RepositoryBase<Company>, ICompanyGateway
     {
         public CompanyRepository(ApplicationDbContext context) : base(context) { }
-
-
-
     }
 }

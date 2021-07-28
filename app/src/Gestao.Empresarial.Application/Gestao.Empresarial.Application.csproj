@@ -6,15 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gestao.Empresarial.Domain\Gestao.Empresarial.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\CompanyModels\" />
-    <Folder Include="Models\RequestModels\" />
-    <Folder Include="Models\ResponseModels\" />
-    <Folder Include="Mappers\" />
-    <Folder Include="UseCases\Abstractions\" />
-    <Folder Include="UseCases\Company\" />
+    <ProjectReference Include="..\Gestao.Empresarial.Infrastructure\Gestao.Empresarial.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

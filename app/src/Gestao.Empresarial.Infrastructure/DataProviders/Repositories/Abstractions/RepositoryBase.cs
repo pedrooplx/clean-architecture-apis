@@ -4,7 +4,6 @@ using Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Abstractions

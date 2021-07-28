@@ -1,3 +1,9 @@
+using AutoMapper;
+using Gestao.Empresarial.API.IoC;
+using Gestao.Empresarial.Application.Mappers;
+using Gestao.Empresarial.Application.Models.CompanyModels;
+using Gestao.Empresarial.Application.UseCases.Abstractions;
+using Gestao.Empresarial.Application.UseCases.Company;
 using Gestao.Empresarial.Domain.Interfaces.Repositories;
 using Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data;
 using Gestao.Empresarial.Infrastructure.Persistence.Repositories;
@@ -22,16 +28,11 @@ namespace Gestao.Empresarial.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("GestaoEmpresarialDatabaseConnection"));
-            });
-
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
 
-            services.AddScoped<ICompanyGateway, CompanyRepository>();
+            ResolveDependencies.RegisterServices(services, Configuration);
 
             services.AddControllers();
         }
@@ -45,6 +46,7 @@ namespace Gestao.Empresarial.API
             }
 
             app.UseHttpsRedirection();
+            app.UseHsts();
 
             app.UseRouting();
 

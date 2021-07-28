@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gestao.Empresarial.Application\Gestao.Empresarial.Application.csproj" />
-    <ProjectReference Include="..\Gestao.Empresarial.Infrastructure\Gestao.Empresarial.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

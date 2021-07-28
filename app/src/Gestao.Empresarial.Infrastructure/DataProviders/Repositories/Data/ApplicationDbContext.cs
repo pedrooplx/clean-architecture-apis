@@ -12,13 +12,14 @@ namespace Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions options, Guid loggedUserId) : base(options)
-        {
-            this.LoggedUserId = loggedUserId;
-        }
-
         public Guid LoggedUserId { get; set; }
-
+        //public ApplicationDbContext(DbContextOptions options, Guid loggedUserId) : base(options)
+        //{
+        //    this.LoggedUserId = loggedUserId;
+        //}
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        {
+        }
 
         public DbSet<Company> Companies { get; set; }
 
@@ -36,13 +37,13 @@ namespace Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data
 
         public override int SaveChanges()
         {
-            this.ConfigureAuditoryProperty();
+            //this.ConfigureAuditoryProperty();
             return base.SaveChanges();
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            this.ConfigureAuditoryProperty();
+            //this.ConfigureAuditoryProperty();
             return base.SaveChangesAsync(cancellationToken);
         }
     }
