@@ -2,7 +2,6 @@
 using Gestao.Empresarial.Application.Models.CompanyModels;
 using Gestao.Empresarial.Application.UseCases.Abstractions;
 using Gestao.Empresarial.Domain.Interfaces.Repositories;
-using Gestao.Empresarial.Infrastructure.Persistence.Repositories;
 using System.Threading.Tasks;
 
 namespace Gestao.Empresarial.Application.UseCases.Company
