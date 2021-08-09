@@ -1,13 +1,14 @@
-﻿using Gestao.Empresarial.Application.Models.CompanyModels;
+﻿using Gestao.Empresarial.API.Abstractions.Controllers;
+using Gestao.Empresarial.Application.Models.CompanyModels;
 using Gestao.Empresarial.Application.UseCases.Abstractions;
-using Gestao.Empresarial.Domain.Interfaces.Repositories;
-using Gestao.Empresarial.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace Gestao.Empresarial.API.Controllers
+namespace Gestao.Empresarial.API.v1.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    //[ApiVersion("1.0", Deprecated = true)]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class CompaniesController : BaseController
     {
         private readonly IUseCaseAsync<GetCompanyByIdResquest, GetCompanyByIdResponse> _getCompanyByIdUseCase;
@@ -17,10 +18,16 @@ namespace Gestao.Empresarial.API.Controllers
             _getCompanyByIdUseCase = getCompanyByIdUseCase;
         }
 
+        [HttpGet]
+        public IActionResult GetCompanies()
+        {
+            return Ok("Retorno Ok!");
+        }
+        
         [HttpGet("{Id:Guid}")]
         public IActionResult GetCompanyById(Guid id)
         {
-            return Ok(_getCompanyByIdUseCase.ExecuteAsync(new GetCompanyByIdResquest { Id = id }));
+            return Ok(_getCompanyByIdUseCase.ExecuteAsync(new GetCompanyByIdResquest { Id = id }).Result);
         }
     }
 }

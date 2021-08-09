@@ -1,15 +1,6 @@
-using AutoMapper;
 using Gestao.Empresarial.API.IoC;
-using Gestao.Empresarial.Application.Mappers;
-using Gestao.Empresarial.Application.Models.CompanyModels;
-using Gestao.Empresarial.Application.UseCases.Abstractions;
-using Gestao.Empresarial.Application.UseCases.Company;
-using Gestao.Empresarial.Domain.Interfaces.Repositories;
-using Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data;
-using Gestao.Empresarial.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
