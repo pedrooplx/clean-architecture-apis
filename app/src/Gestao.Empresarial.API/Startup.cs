@@ -40,6 +40,10 @@ namespace Gestao.Empresarial.API
             app.UseHttpsRedirection();
             app.UseHsts();
 
+            app.UseStaticFiles();
+
+            ResolveBuilders.RegisterBuilders(app, provider);
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -48,8 +52,6 @@ namespace Gestao.Empresarial.API
             {
                 endpoints.MapControllers();
             });
-            
-            ResolveBuilders.RegisterBuilders(app, provider);
         }
     }
 }

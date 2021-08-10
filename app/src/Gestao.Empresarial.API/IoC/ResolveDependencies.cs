@@ -8,6 +8,8 @@ using Gestao.Empresarial.Domain.Interfaces.Repositories;
 using Gestao.Empresarial.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Gestao.Empresarial.API.IoC
 {
@@ -25,6 +27,7 @@ namespace Gestao.Empresarial.API.IoC
             AutoMapperConfiguration.ResolveAutoMapper(services);
             ResolveGateways(services);
             ResolveUseCases(services);
+            ResolveExtensions(services);
         }
 
         private static void ResolveGateways(this IServiceCollection services)
@@ -35,5 +38,11 @@ namespace Gestao.Empresarial.API.IoC
         {
             services.AddScoped<IUseCaseAsync<GetCompanyByIdResquest, GetCompanyByIdResponse>, GetCompanyByIdUseCaseAsync>();
         }
+
+        private static void ResolveExtensions(this IServiceCollection services)
+        {
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOptions>();
+        }
+
     }
 }

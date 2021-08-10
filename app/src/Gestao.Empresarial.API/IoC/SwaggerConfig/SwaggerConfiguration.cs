@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
 
 namespace Gestao.Empresarial.API.IoC.SwaggerConfig
 {

@@ -2,7 +2,6 @@
 using Gestao.Empresarial.Application.Models.CompanyModels;
 using Gestao.Empresarial.Application.UseCases.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Gestao.Empresarial.API.v1.Controllers
 {
