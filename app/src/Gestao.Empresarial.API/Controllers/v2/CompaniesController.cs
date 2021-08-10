@@ -2,10 +2,11 @@
 using Gestao.Empresarial.Application.Models.CompanyModels;
 using Gestao.Empresarial.Application.UseCases.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
-namespace Gestao.Empresarial.API.v1.Controllers
+namespace Gestao.Empresarial.API.v2.Controllers
 {
-    [ApiVersion("1.0", Deprecated = true)]
+    [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class CompaniesController : BaseController
@@ -16,11 +17,11 @@ namespace Gestao.Empresarial.API.v1.Controllers
         {
             _getCompanyByIdUseCase = getCompanyByIdUseCase;
         }
-
-        [HttpGet]
-        public IActionResult GetCompanies()
+        
+        [HttpGet("{Id:Guid}")]
+        public IActionResult GetCompanyById(Guid id)
         {
-            return Ok("Retorno Ok!");
+            return Ok(_getCompanyByIdUseCase.ExecuteAsync(new GetCompanyByIdResquest { Id = id }).Result);
         }
     }
 }
