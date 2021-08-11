@@ -1,5 +1,6 @@
 ﻿using Gestao.Empresarial.API.IoC.AutoMapperConfig;
 using Gestao.Empresarial.API.IoC.DatabaseConfig;
+using Gestao.Empresarial.API.IoC.LoggerConfig;
 using Gestao.Empresarial.API.IoC.SwaggerConfig;
 using Gestao.Empresarial.Application.Models.CompanyModels;
 using Gestao.Empresarial.Application.UseCases.Abstractions;
@@ -25,6 +26,8 @@ namespace Gestao.Empresarial.API.IoC
             SwaggerConfiguration.ResolveSwagger(services);
             DatabaseConfiguration.ResolveDatabase(services, configuration);
             AutoMapperConfiguration.ResolveAutoMapper(services);
+            LoggerConfiguration.ResolveLogger(services);
+
             ResolveGateways(services);
             ResolveUseCases(services);
             ResolveExtensions(services);
@@ -43,6 +46,5 @@ namespace Gestao.Empresarial.API.IoC
         {
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOptions>();
         }
-
     }
 }

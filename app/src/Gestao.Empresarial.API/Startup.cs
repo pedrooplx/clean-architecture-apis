@@ -42,7 +42,7 @@ namespace Gestao.Empresarial.API
 
             app.UseStaticFiles();
 
-            ResolveBuilders.RegisterBuilders(app, provider);
+            ResolveBuilders.RegisterBuilders(app, provider, Configuration);
 
             app.UseRouting();
 
