@@ -1,5 +1,6 @@
 ﻿using Gestao.Empresarial.API.IoC.AutoMapperConfig;
 using Gestao.Empresarial.API.IoC.DatabaseConfig;
+using Gestao.Empresarial.API.IoC.HealthCheckConfig;
 using Gestao.Empresarial.API.IoC.LoggerConfig;
 using Gestao.Empresarial.API.IoC.SwaggerConfig;
 using Gestao.Empresarial.Application.Models.CompanyModels;
@@ -22,6 +23,7 @@ namespace Gestao.Empresarial.API.IoC
         }
         private static void ResolveServices(this IServiceCollection services, IConfiguration configuration)
         {
+            HealthCheckConfiguration.ResolveHealthyCheck(services, configuration);
             VersioningConfiguration.ResolveVersioning(services);
             SwaggerConfiguration.ResolveSwagger(services);
             DatabaseConfiguration.ResolveDatabase(services, configuration);

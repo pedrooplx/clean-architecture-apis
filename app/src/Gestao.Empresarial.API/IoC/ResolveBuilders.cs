@@ -1,4 +1,5 @@
-﻿using Gestao.Empresarial.API.IoC.LoggerConfig;
+﻿using Gestao.Empresarial.API.IoC.HealthCheckConfig;
+using Gestao.Empresarial.API.IoC.LoggerConfig;
 using Gestao.Empresarial.API.IoC.SwaggerConfig;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -14,6 +15,7 @@ namespace Gestao.Empresarial.API.IoC
             IConfiguration configuration
             )
         {
+            HealthCheckBuilder.UseLoggerConfig(app);
             SwaggerBuilder.UseSwaggerConfig(app, provider);
             LoggerBuilder.UseLoggerConfig(app, configuration);
         }
