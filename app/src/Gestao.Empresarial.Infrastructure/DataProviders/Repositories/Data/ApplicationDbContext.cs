@@ -43,7 +43,7 @@ namespace Gestao.Empresarial.Infrastructure.DataProviders.Repositories.Data
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            //this.ConfigureAuditoryProperty();
+            this.ConfigureAuditoryProperty();
             return base.SaveChangesAsync(cancellationToken);
         }
     }

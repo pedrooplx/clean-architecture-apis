@@ -42,6 +42,7 @@ namespace Gestao.Empresarial.API.IoC
         private static void ResolveUseCases(this IServiceCollection services)
         {
             services.AddScoped<IUseCaseAsync<GetCompanyByIdResquest, GetCompanyByIdResponse>, GetCompanyByIdUseCaseAsync>();
+            services.AddScoped<IUseCaseAsync<CreateCompanyRequest>, CreateCompanyUseCaseAsync>();
         }
 
         private static void ResolveExtensions(this IServiceCollection services)

@@ -9,6 +9,7 @@ namespace Gestao.Empresarial.Application.Mappers
         public AutoMapperUseCase()
         {
             CreateMap<Company, GetCompanyByIdResponse>();
+            CreateMap<CreateCompanyRequest, Company>();
         }
     }
 }
