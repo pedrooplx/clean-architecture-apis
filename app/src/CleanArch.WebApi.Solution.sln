@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArch.WebApi.Infrastruc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArch.WebApi.Infrastructure.Shared", "CleanArch.WebApi\CleanArch.WebApi.Infrastructure.Shared\CleanArch.WebApi.Infrastructure.Shared.csproj", "{87792294-501A-4A87-8661-7CFE9A2E023B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E460B41C-4674-4291-817D-2497265EE3B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{D9CC8FBB-85EE-4048-9D62-E5D4ED52447C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

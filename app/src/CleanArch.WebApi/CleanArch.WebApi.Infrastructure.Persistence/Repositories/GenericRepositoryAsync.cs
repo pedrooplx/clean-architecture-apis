@@ -18,7 +18,7 @@ namespace CleanArch.WebApi.Infrastructure.Persistence.Repository
             _dbContext = dbContext;
         }
 
-        public virtual async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
