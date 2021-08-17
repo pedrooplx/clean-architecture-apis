@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CleanArch.WebApi.Domain.Entities
 {
-    public class Product : AuditableBaseEntity
+    public class Product : EntityBase
     {
         public string Name { get; set; }
         public string Barcode { get; set; }
